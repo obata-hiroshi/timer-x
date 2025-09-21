@@ -29,9 +29,30 @@
 		77EB04CA2E7FD90300686369 /* time-xUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "time-xUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		77EB04E12E7FDCC600686369 /* Exceptions for "time-x" folder in "time-xTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CountdownTimer.swift,
+			);
+			target = 77EB04BF2E7FD90300686369 /* time-xTests */;
+		};
+		77EB04E22E7FDCC600686369 /* Exceptions for "time-x" folder in "time-xUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CountdownTimer.swift,
+			);
+			target = 77EB04C92E7FD90300686369 /* time-xUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		77EB04B52E7FD90200686369 /* time-x */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				77EB04E12E7FDCC600686369 /* Exceptions for "time-x" folder in "time-xTests" target */,
+				77EB04E22E7FDCC600686369 /* Exceptions for "time-x" folder in "time-xUITests" target */,
+			);
 			path = "time-x";
 			sourceTree = "<group>";
 		};
