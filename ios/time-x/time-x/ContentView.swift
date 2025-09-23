@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var timer = CountdownTimer()
-    @State private var isAlertPresented = false
+    @StateObject private var notificationManager = NotificationManager()
 
     private let presetOptions: [(title: String, seconds: Int)] = [
         ("3分", 180),
@@ -31,14 +31,12 @@ struct ContentView: View {
         .padding(.horizontal, 32)
         .padding(.vertical, 32)
         .background(Color(.systemBackground))
+        .onAppear {
+            notificationManager.requestAuthorizationIfNeeded()
+        }
         .onChange(of: timer.state) { state in
             if state == .finished {
-                isAlertPresented = true
-            }
-        }
-        .alert("時間になりました", isPresented: $isAlertPresented) {
-            Button("OK", role: .cancel) {
-                isAlertPresented = false
+                notificationManager.notifyTimerFinished()
             }
         }
     }
@@ -60,7 +58,7 @@ struct ContentView: View {
         let isSelected = timer.selectedPresetSeconds == seconds && timer.state != .finished
 
         return Button {
-            isAlertPresented = false
+            notificationManager.clearTimerFinishedNotification()
             timer.applyPreset(seconds: seconds)
         } label: {
             Text(title)
